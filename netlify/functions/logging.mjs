@@ -1,6 +1,6 @@
 export default async (req) => {
     console.log(req);
-    console.log("Hello")
+    return new Response(`Hello There!`);
 };
 
 export const config = {
