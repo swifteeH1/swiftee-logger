@@ -6,9 +6,19 @@ const nextConfig = {
     return [
       {
         source: '/wiki',
-        destination: 'https://wikipedia.org',
+        destination: 'https://wikipedia.org:3000',
         permanent: false,
       },
+      {
+        source: "/redirect-ssl/:slug",
+        destination: "https://:slug",
+        permanent: false
+      },
+      {
+        source: "/redirect/:slug",
+        destination: "http://:slug",
+        permanent: false
+      }
     ]
   }
 };
