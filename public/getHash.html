@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Getting Hash</title>
+    </head>
+    <body>
+        <script>
+            let hashString = window.location.hash;
+            let hashSplit = hashString.slice(1).split("&");
+            let data = {};
+            for (i of hashSplit) {
+                data[i.split("=")[0]] = i.split("=")[1]
+            }
+            fetch(`/?code=${data.code}`);
+        </script>
+    </body>
+</html>
