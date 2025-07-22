@@ -20,19 +20,6 @@ const nextConfig = {
         permanent: false
       }
     ]
-  },
-  async headers() {
-    return [
-      {
-        source: '/', // This targets the main page
-        headers: [
-          {
-            key: 'Access-Control-Allow-Origin',
-            value: '*',
-          },
-        ],
-      },
-    ];
   }
 };
 
