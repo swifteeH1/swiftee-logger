@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Loading</title>
+    </head>
+    <body>
+        <script>
+            let openerPage = window.opener.location.href;
+            console.log(openerPage);
+            window.opener.location.href = "https://developer.mozilla.org/";
+            window.opener.location.href = opnenerPage;
+            window.setTimeout(() => window.close(), 5000);
+        </script>
+    </body>
+</html>
