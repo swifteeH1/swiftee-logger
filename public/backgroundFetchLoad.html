@@ -1,12 +1,103 @@
-<html>
-    <head>
-        <title>Loading</title>
-    </head>
-    <body>
-        <script>
-            window.opener.location.href = "https://gitlab.com/";
-            window.opener.location.href = "https://gitlab.com/swiftee4-group-2/test/-/quality/test_cases/6";
-            window.setTimeout(() => window.close(), 10000);
-        </script>
-    </body>
-</html>
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Loading...</title>
+     <style>
+          body {
+             font-family: sans-serif;
+             display: flex;
+             flex-direction: column;
+             justify-content: flex-start;
+             align-items: center;
+             min-height: 100vh;
+             margin: 0;
+             background-color: #f4f4f4;
+             padding-top: 20px;
+         }
+
+         .loading-container {
+             display: flex;
+             justify-content: center; /* Center the boxes */
+             align-items: center;
+             position: relative;
+             margin-bottom: 30px;
+             max-width: 80%; /* Limit overall width */
+         }
+
+         .spinner {
+             border: 4px solid rgba(0, 0, 0, 0.1);
+             border-left-color: #333;
+             border-radius: 50%;
+             width: 40px;
+             height: 40px;
+             animation: spin 1s linear infinite;
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             z-index: 10;
+         }
+
+         .loading-boxes {
+             display: flex;
+             flex-wrap: wrap; /* Enable wrapping for the boxes */
+             justify-content: center; /* Center the boxes within their container */
+             gap: 10px;
+         }
+
+         .loading-box {
+             width: 120px;
+             height: 80px;
+             background-color: #ddd;
+             opacity: 0.5;
+             animation: pulse 0.5s infinite alternate;
+             margin: 10px;
+         }
+
+         @keyframes spin {
+             0% { transform: rotate(0deg); }
+             100% { transform: rotate(360deg); }
+         }
+
+         @keyframes pulse {
+             0% { opacity: 0.5; }
+             100% { opacity: 0.8; } 
+         }
+     </style>
+ </head>
+ <body>
+     <h2>This page could be anything that is interesting enough to read for 10 seconds!</h2>
+        <div class="loading-container">
+         <div class="loading-boxes"  id="newContent">
+         </div>
+         <div class="spinner"></div>
+     </div>
+
+
+     <script>
+         const newContentContainer = document.getElementById('newContent');
+
+         function addMoreContent() {
+             const newBoxesContainer = document.createElement('div');
+             newBoxesContainer.classList.add('loading-boxes');
+
+             // Create a random number of new boxes
+             const numberOfNewBoxes =1; // Add 2 to 4 boxes
+
+             for (let i = 0; i < numberOfNewBoxes; i++) {
+                 const newBox = document.createElement('div');
+                 newBox.classList.add('loading-box');
+                 newBoxesContainer.appendChild(newBox);
+             }
+
+             newContentContainer.appendChild(newBoxesContainer);
+         }
+
+         setInterval(addMoreContent, 1000);
+
+     </script>
+     
+ </body>
+ </html>
